@@ -5,8 +5,16 @@ import { v4 as uuidv4 } from "uuid";
 
 export const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
+  const [showModal, setshowModal] = useState([]);
 
-  const addTodo = (todo) => {
+  function openModal() {
+    // eslint-disable-next-line no-undef
+    setshowModal (current => !current)
+  }
+
+  const addTodoAndCloseModal = (todo) => {
+    // eslint-disable-next-line no-undef
+    setshowModal (current => !current)
     setTodos([
       ...todos,
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
@@ -35,7 +43,10 @@ export const TodoWrapper = () => {
     <div className="TodoWrapper">
       <div className="header">
         <h1>Get Things Done!</h1>
-        <TodoForm addTodo={addTodo} />
+        { showModal ? 
+        <button onClick={openModal} className="showCreateTask">Add new task</button> :
+        <TodoForm addTodo={addTodoAndCloseModal} /> 
+      }
       </div>
       {/* display todos */}
       {todos.map((todo) =>
