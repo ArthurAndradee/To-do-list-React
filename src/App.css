@@ -5,11 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  box-sizing: border-box;
-  &::before, &::after {
-    box-sizing: border-box;
-  }
 }
 
 body {
@@ -35,16 +30,12 @@ body {
 
 .header {
   height: 15%;
-  width: 100%;
-
-  border: 2px solid black;
+  width: 89%;
 
   margin-bottom: 50px;
 
   display: flex;
   justify-content: space-between;
-
-  padding: 0px 25px;
 }
 
 h1 {
@@ -59,7 +50,6 @@ h1 {
 }
 
 .TodoForm {
-  float: right;
 }
 
 .todo-input {
@@ -103,6 +93,8 @@ h1 {
   border: none;
 
   transition: all 300ms;
+
+  position: absolute;
 
   &:hover {
     color: #7e25be;
@@ -164,6 +156,7 @@ input[type="checkbox"] {
     transform: rotate(45deg);
     opacity: 0;
   }
+
   &:checked {
     color: white;
     border-color: #7e25be;
@@ -172,6 +165,7 @@ input[type="checkbox"] {
     &::before {
       opacity: 1;
     }
+    
     ~ p::before {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
@@ -206,13 +200,12 @@ p {
 
 .fa-trash {
   margin-right: 5%;
-
-  cursor: pointer;
-
   
+  cursor: pointer;
   transition: all 300ms;
 
   &:hover {
     color: #de0000;
+    box-shadow: 0px 0px 10px 0px #ff5757;
   }
 }
