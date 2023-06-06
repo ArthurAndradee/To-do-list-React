@@ -1,9 +1,9 @@
 import React, {useState}from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 
-export const Todo = ({task, deleteTodo, toggleComplete}) => {
+export const Todo = ({task, deleteTodo, editTodo}) => {
   const [lineThrough, setlineThrough] = useState(0);
 
   function taskLineThrough() {
@@ -20,6 +20,7 @@ export const Todo = ({task, deleteTodo, toggleComplete}) => {
         >
           {task.task}
         </label>
+        <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(task.id)} />
         <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(task.id)} />
     </div>
   )
