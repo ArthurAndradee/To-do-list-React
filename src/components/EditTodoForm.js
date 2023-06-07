@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 export const EditTodoForm = ({editTodo, task}) => {
     const [value, setValue] = useState(task.task);
@@ -12,19 +12,15 @@ export const EditTodoForm = ({editTodo, task}) => {
         editTodo(value, task.id);
       };
 
-      const [lineThrough, setlineThrough] = useState(0);
-
-      function taskLineThrough() {
-        // eslint-disable-next-line no-undef
-        setlineThrough (current => !current)
-      }
   return (
     <form onSubmit={handleSubmit} className="TodoForm">
-        <div className="Todo">
-          <input type='checkbox' className='checkbox' onClick={taskLineThrough}/>
-          <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder='Update task' />
-          <button type="submit">Add Task</button>
-          <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(task.id)} />
+        <div className="editTodo">
+          <input type='checkbox' style={{display: "block", marginRight: "17%"}}/>
+          <input className="editInput" type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder='Update task' />
+          <button className='editSubmitEditTaskButton' type="submit">
+            <FontAwesomeIcon className='editPenIcon' icon={faCheck} onClick={() => editTodo(task.id)}/>
+          </button>
+          <FontAwesomeIcon icon={faTrash}/>
         </div>
     </form>
   )
