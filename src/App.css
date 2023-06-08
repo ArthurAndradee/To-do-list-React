@@ -228,10 +228,12 @@ input[type="checkbox"] {
 }
 
 .editInput {
+  width:50%;
+  
   font-size: 1rem;
-
   color: black;
-
+  
+  margin-right: 15%;
   background: #ececec;
   border: none;
   padding: 0;
